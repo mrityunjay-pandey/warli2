@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warli - Premium Jewelry Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Warli</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rings">Rings</a></li>
+                <li><a href="#necklaces">Necklaces</a></li>
+                <li><a href="#earrings">Earrings</a></li>
+                <li><a href="#bracelets">Bracelets</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+                <a href="#" class="nav-icon cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Timeless Indian Elegance</h1>
+            <p class="hero-subtitle">Discover our exquisite collection of traditional Indian jewelry</p>
+            <button class="cta-button">Shop Collection</button>
+        </div>
+        <div class="hero-image">
+            <div class="jewelry-showcase">
+                <div class="jewelry-item ring-hero"></div>
+                <div class="jewelry-item necklace-hero"></div>
+                <div class="jewelry-item earring-hero"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="rings">
+                    <div class="category-image">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Rings</h3>
+                    <p>Traditional Indian rings with intricate designs</p>
+                </div>
+                <div class="category-card" data-category="necklaces">
+                    <div class="category-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Necklaces</h3>
+                    <p>Beautiful Indian necklaces and mangalsutras</p>
+                </div>
+                <div class="category-card" data-category="earrings">
+                    <div class="category-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Earrings</h3>
+                    <p>Traditional Indian earrings and jhumkas</p>
+                </div>
+                <div class="category-card" data-category="bracelets">
+                    <div class="category-image">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <h3>Bracelets</h3>
+                    <p>Traditional Indian bangles and bracelets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="rings">Rings</button>
+                <button class="filter-btn" data-filter="necklaces">Necklaces</button>
+                <button class="filter-btn" data-filter="earrings">Earrings</button>
+                <button class="filter-btn" data-filter="bracelets">Bracelets</button>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>For over three decades, Warli has been crafting exceptional Indian jewelry that celebrates life's most precious moments. Each piece is meticulously designed and handcrafted by our master artisans, combining traditional Indian techniques with contemporary elegance.</p>
+                    <p>We believe that jewelry is more than an accessory—it's a reflection of your unique story and cultural heritage. From traditional mangalsutras that mark new beginnings to anniversary gifts that celebrate lasting love, our collection is designed to be treasured for generations and passed down as family heirlooms.</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+                <div class="about-image">
+                    <div class="craftsmanship-showcase"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Our Store</h4>
+                            <p>Delhi & Lucknow<br>India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 8528530993</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>durgeshpandeyta@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Warli</h3>
+                    <p>Creating timeless Indian jewelry that celebrates your heritage and tells your story.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#rings">Rings</a></li>
+                        <li><a href="#necklaces">Necklaces</a></li>
+                        <li><a href="#earrings">Earrings</a></li>
+                        <li><a href="#bracelets">Bracelets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and new arrivals</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Warli. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="product-image-container">
+                    <img id="modal-product-image" src="" alt="">
+                </div>
+                <div class="product-details">
+                    <h2 id="modal-product-name"></h2>
+                    <p id="modal-product-price"></p>
+                    <p id="modal-product-description"></p>
+                    <div class="size-selector">
+                        <label>Size:</label>
+                        <select id="product-size">
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                    </div>
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" id="qty-minus">-</button>
+                            <span id="qty-display">1</span>
+                            <button class="qty-btn" id="qty-plus">+</button>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn" id="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
