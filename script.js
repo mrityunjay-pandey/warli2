@@ -6,7 +6,7 @@ const products = [
         price: 24999.99,
         category: "necklaces",
         description: "Sacred mangalsutra with black beads and gold pendant, symbolizing marital bliss and prosperity.",
-        image: "511920FCMAA00_1.webp",
+        image: "asset/20250925_080542.jpg",
         inStock: true
     },
     {
@@ -15,7 +15,7 @@ const products = [
         price: 8999.99,
         category: "necklaces",
         description: "Exquisite kundan work necklace with lustrous pearls and traditional Indian craftsmanship.",
-        image: "511920FCMAA00_1.webp",
+        image: "asset/20250925_090339.jpg",
         inStock: true
     },
     {
@@ -24,7 +24,7 @@ const products = [
         price: 2999.99,
         category: "earrings",
         description: "Classic Indian jhumkas with intricate filigree work and traditional bell design.",
-        image: "👂",
+        image: "asset/20250925_090345.jpg",
         inStock: true
     },
     {
@@ -33,7 +33,7 @@ const products = [
         price: 12999.99,
         category: "bracelets",
         description: "Traditional Indian gold bangles with meenakari work and traditional patterns.",
-        image: "💎",
+        image: "asset/20250925_090556.jpg",
         inStock: true
     },
     {
@@ -42,7 +42,7 @@ const products = [
         price: 18999.99,
         category: "rings",
         description: "Sacred navratna ring with nine precious stones representing the nine planets.",
-        image: "511920FCMAA00_1.webp",
+        image: "asset/20251008_114129.jpg",
         inStock: true
     },
     {
@@ -51,7 +51,7 @@ const products = [
         price: 5999.99,
         category: "earrings",
         description: "Ornate temple-style jhumkas with traditional Indian motifs and gold work.",
-        image: "👂",
+        image: "asset/20251008_114135.jpg",
         inStock: true
     },
     {
@@ -60,7 +60,7 @@ const products = [
         price: 4499.99,
         category: "necklaces",
         description: "Elegant layered gold necklace with traditional Indian chain patterns.",
-        image: "511920FCMAA00_1.webp",
+        image: "asset/20251022_145801.jpg",
         inStock: true
     },
     {
@@ -69,7 +69,7 @@ const products = [
         price: 1999.99,
         category: "bracelets",
         description: "Colorful traditional lac bangles with intricate designs and patterns.",
-        image: "💎",
+        image: "asset/20251022_145820.jpg",
         inStock: true
     },
     {
@@ -78,7 +78,7 @@ const products = [
         price: 7999.99,
         category: "rings",
         description: "Vintage-inspired gold ring with traditional Indian craftsmanship and motifs.",
-        image: "💍",
+        image: "asset/20251022_145828.jpg",
         inStock: true
     },
     {
@@ -87,7 +87,7 @@ const products = [
         price: 14999.99,
         category: "earrings",
         description: "Classic diamond stud earrings in traditional Indian gold setting.",
-        image: "👂",
+        image: "asset/20251022_145840.jpg",
         inStock: true
     },
     {
@@ -96,7 +96,7 @@ const products = [
         price: 3499.99,
         category: "necklaces",
         description: "Sacred Om symbol pendant necklace with traditional Indian chain.",
-        image: "📿",
+        image: "asset/20251022_150028.jpg",
         inStock: true
     },
     {
@@ -105,7 +105,25 @@ const products = [
         price: 2499.99,
         category: "bracelets",
         description: "Traditional Indian kada bracelet with intricate gold work and cultural significance.",
-        image: "💎",
+        image: "asset/20251022_150250.jpg",
+        inStock: true
+    },
+    {
+        id: 13,
+        name: "Gold Earrings Collection",
+        price: 8999.99,
+        category: "earrings",
+        description: "Beautiful traditional gold earrings with modern elegance.",
+        image: "asset/20251022_150314.jpg",
+        inStock: true
+    },
+    {
+        id: 14,
+        name: "Premium Jewelry Set",
+        price: 19999.99,
+        category: "necklaces",
+        description: "Stunning premium jewelry set with intricate traditional designs.",
+        image: "asset/20251022_150326.jpg",
         inStock: true
     }
 ];
@@ -158,7 +176,7 @@ function createProductCard(product) {
     card.className = 'product-card';
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${product.image.includes('.webp') ? '💎' : product.image}'">
+            <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size: 3rem;\\'>💎</div>'">
         </div>
         <div class="product-info">
             <h3 class="product-name">${product.name}</h3>
@@ -186,7 +204,7 @@ function openProductModal(productId) {
     modalImage.alt = product.name;
     modalImage.onerror = function() {
         this.style.display = 'none';
-        this.parentElement.innerHTML = product.image.includes('.webp') ? '💎' : product.image;
+        this.parentElement.innerHTML = '<div style="font-size: 3rem;">💎</div>';
     };
     
     currentQuantity = 1;
