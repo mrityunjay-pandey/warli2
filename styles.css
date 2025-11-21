@@ -948,6 +948,274 @@ body {
     background: var(--secondary-gold);
 }
 
+/* Admin Panel */
+.admin-panel {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #fff, #fdf8f3);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.admin-eyebrow {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: #c38b5a;
+    margin-bottom: 0.5rem;
+}
+
+.admin-subtitle {
+    color: #555;
+    max-width: 640px;
+}
+
+.admin-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(195, 139, 90, 0.12);
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    color: #8a5a34;
+    font-weight: 500;
+}
+
+.admin-form {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem;
+}
+
+.admin-form .form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.admin-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.admin-form input,
+.admin-form textarea {
+    border: 1px solid #e2d8cf;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    outline: none;
+    border-color: #c38b5a;
+    box-shadow: 0 0 0 3px rgba(195, 139, 90, 0.15);
+}
+
+.admin-form .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.admin-submit {
+    flex: 1;
+    border: none;
+    background: linear-gradient(135deg, #c38b5a, #a37246);
+    color: #fff;
+    font-size: 1.05rem;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(163, 114, 70, 0.25);
+}
+
+.admin-cancel-edit {
+    display: none;
+    border: 1px solid #e2d8cf;
+    background: transparent;
+    color: #a37246;
+    font-weight: 600;
+    padding: 0.9rem 1.25rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.admin-cancel-edit:hover {
+    background: rgba(195, 139, 90, 0.1);
+}
+
+.admin-editing-badge {
+    display: none;
+    margin-top: 1rem;
+    background: rgba(195, 139, 90, 0.15);
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    color: #8a5a34;
+    font-weight: 600;
+    width: fit-content;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.admin-submissions {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.admin-submissions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.admin-clear {
+    border: none;
+    background: none;
+    color: #b14444;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+.admin-clear:hover {
+    background: rgba(177, 68, 68, 0.12);
+}
+
+.admin-empty {
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.admin-product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-product-card {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #f0e6dd;
+    border-radius: 16px;
+    align-items: center;
+}
+
+.admin-product-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f7f2ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-placeholder {
+    font-size: 2rem;
+}
+
+.admin-product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.admin-product-name {
+    font-weight: 600;
+}
+
+.admin-product-price {
+    color: #c38b5a;
+    font-weight: 600;
+}
+
+.admin-product-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.admin-product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-product-action {
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-product-edit {
+    background: rgba(195, 139, 90, 0.12);
+    color: #8a5a34;
+}
+
+.admin-product-edit:hover {
+    background: rgba(195, 139, 90, 0.25);
+}
+
+.admin-product-remove {
+    background: rgba(177, 68, 68, 0.12);
+    color: #b14444;
+}
+
+.admin-product-remove:hover {
+    background: rgba(177, 68, 68, 0.25);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -1023,6 +1291,36 @@ body {
 
     .category-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .admin-header {
+        flex-direction: column;
+    }
+
+    .admin-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-product-card {
+        grid-template-columns: 60px 1fr;
+        grid-template-areas:
+            "image details"
+            "actions actions";
+    }
+
+    .admin-product-image {
+        grid-area: image;
+    }
+
+    .admin-product-details {
+        grid-area: details;
+    }
+
+    .admin-product-actions {
+        grid-area: actions;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 }
 

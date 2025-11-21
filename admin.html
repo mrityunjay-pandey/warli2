@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warli Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Warli Admin</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">← Back to Storefront</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="index.html" class="nav-icon"><i class="fas fa-home"></i></a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top:100px;">
+        <section id="admin-panel" class="admin-panel">
+            <div class="container">
+                <div class="admin-header">
+                    <div>
+                        <p class="admin-eyebrow">Admin Access</p>
+                        <h2 class="section-title">Add New Products</h2>
+                        <p class="admin-subtitle">Paste an image link and product details below to create custom cards. Entries live in this browser so you can keep editing without losing work.</p>
+                    </div>
+                    <div class="admin-hint">
+                        <i class="fas fa-lock"></i>
+                        <span>Private draft space. Share page only with trusted users.</span>
+                    </div>
+                </div>
+                <form id="admin-product-form" class="admin-form">
+                    <div class="form-row">
+                        <label for="admin-product-name">Product Name</label>
+                        <input type="text" id="admin-product-name" placeholder="Heritage Kundan Necklace" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="admin-product-description">Description</label>
+                        <textarea id="admin-product-description" rows="3" placeholder="Describe the craftsmanship, stones, or story behind the product" required></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-row">
+                            <label for="admin-product-price">Price (₹)</label>
+                            <input type="number" id="admin-product-price" placeholder="19999" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="admin-product-image">Image Link</label>
+                            <input type="url" id="admin-product-image" placeholder="https://example.com/mangalsutra.jpg" required>
+                        </div>
+                    </div>
+                    <div class="admin-form-actions">
+                        <button type="submit" class="admin-submit" id="admin-submit-btn">
+                            <i class="fas fa-upload"></i>
+                            Publish Product
+                        </button>
+                        <button type="button" class="admin-cancel-edit" id="admin-cancel-edit">
+                            <i class="fas fa-times-circle"></i>
+                            Cancel Editing
+                        </button>
+                    </div>
+                </form>
+                <p class="admin-editing-badge" id="admin-editing-badge" aria-live="polite">
+                    <i class="fas fa-pen"></i>
+                    Editing product
+                </p>
+                <div class="admin-submissions">
+                    <div class="admin-submissions-header">
+                        <h3>Recently Added</h3>
+                        <button type="button" id="admin-clear-products" class="admin-clear">Clear All</button>
+                    </div>
+                    <p id="admin-empty-state" class="admin-empty">No custom products yet. Add your first listing above.</p>
+                    <div id="admin-product-list" class="admin-product-list">
+                        <!-- Custom products preview -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

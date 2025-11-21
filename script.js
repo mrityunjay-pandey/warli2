@@ -128,6 +128,19 @@ const products = [
     }
 ];
 
+// Custom products persisted locally
+let customProducts = [];
+try {
+    customProducts = JSON.parse(localStorage.getItem('customProducts')) || [];
+    if (!Array.isArray(customProducts)) {
+        customProducts = [];
+    }
+} catch (error) {
+    customProducts = [];
+}
+
+customProducts.forEach(product => products.push(product));
+
 // Global variables
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentFilter = 'all';
