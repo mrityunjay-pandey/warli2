@@ -128,18 +128,92 @@ const products = [
     }
 ];
 
-// Custom products persisted locally
+// API base URL - adjust this to match your server URL
+const API_BASE_URL = window.location.origin.includes('localhost') 
+    ? 'http://localhost:3000/api' 
+    : '/api';
+
+// Custom products from MongoDB
 let customProducts = [];
-try {
-    customProducts = JSON.parse(localStorage.getItem('customProducts')) || [];
-    if (!Array.isArray(customProducts)) {
-        customProducts = [];
+let productsLoaded = false;
+
+// Load products from API
+async function loadProductsFromAPI(forceRefresh = false) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/products`);
+        if (!response.ok) {
+            throw new Error('Failed to load products');
+        }
+        const apiProducts = await response.json();
+        
+        // Get default product IDs (numeric IDs) for comparison
+        const defaultProductIds = new Set(products.map(p => String(p.id)));
+        
+        // If refreshing, remove old custom products first
+        if (forceRefresh && productsLoaded) {
+            // Remove custom products from the products array
+            const customProductIds = new Set(customProducts.map(p => String(p.id)));
+            for (let i = products.length - 1; i >= 0; i--) {
+                if (customProductIds.has(String(products[i].id))) {
+                    products.splice(i, 1);
+                }
+            }
+            customProducts = [];
+        }
+        
+        // Filter and process custom products from MongoDB
+        // Only include products that are marked as custom source
+        const newCustomProducts = apiProducts
+            .filter(p => p.source === 'custom' || !p.source)
+            .map(product => {
+                // Convert MongoDB _id to id for compatibility
+                if (product._id && !product.id) {
+                    product.id = product._id.toString();
+                }
+                // Ensure category is set (default to 'custom' if not set)
+                if (!product.category) {
+                    product.category = 'custom';
+                }
+                // Make sure we have a valid ID
+                if (!product.id) {
+                    product.id = product._id ? product._id.toString() : Date.now().toString();
+                }
+                return product;
+            })
+            .filter(product => {
+                // Exclude if it's actually a default product (by ID match)
+                // This shouldn't happen, but just in case
+                return !defaultProductIds.has(String(product.id));
+            });
+        
+        // Add custom products to the products array
+        newCustomProducts.forEach(product => {
+            // Check if product already exists (shouldn't happen after forceRefresh, but safe check)
+            const exists = products.some(p => String(p.id) === String(product.id));
+            if (!exists) {
+                products.push(product);
+            }
+        });
+        
+        // Update customProducts array
+        customProducts = newCustomProducts;
+        
+        productsLoaded = true;
+        console.log(`Loaded ${customProducts.length} custom products from database`);
+        
+        // Refresh display if page is already loaded
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            displayProducts();
+        }
+    } catch (error) {
+        console.error('Error loading products from API:', error);
+        productsLoaded = true; // Set to true even on error to prevent infinite waiting
+        // Fallback: continue with default products only
     }
-} catch (error) {
-    customProducts = [];
 }
 
-customProducts.forEach(product => products.push(product));
+// Load products on page load
+loadProductsFromAPI();
 
 // Global variables
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -161,12 +235,29 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
 // Initialize the website
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Wait for products to load if they haven't already
+    if (!productsLoaded) {
+        await loadProductsFromAPI();
+    }
+    
     displayProducts();
     updateCartDisplay();
     setupEventListeners();
     setupSmoothScrolling();
     setupAnimations();
+    
+    // Refresh products when page becomes visible (in case products were added in another tab)
+    document.addEventListener('visibilitychange', async function() {
+        if (!document.hidden && productsLoaded) {
+            // Reload products from API to get latest additions
+            const oldCustomCount = customProducts.length;
+            await loadProductsFromAPI(true); // forceRefresh = true
+            if (customProducts.length !== oldCustomCount) {
+                console.log('Products refreshed - new products detected');
+            }
+        }
+    });
 });
 
 // Display products based on current filter
@@ -195,7 +286,7 @@ function createProductCard(product) {
             <h3 class="product-name">${product.name}</h3>
             <p class="product-price">₹${product.price.toFixed(2)}</p>
             <p class="product-description">${product.description}</p>
-            <button class="add-to-cart" onclick="openProductModal(${product.id})">
+            <button class="add-to-cart" onclick="openProductModal('${product.id}')">
                 View Details
             </button>
         </div>
@@ -206,8 +297,12 @@ function createProductCard(product) {
 
 // Open product modal
 function openProductModal(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
+    // Handle both string and number IDs
+    const product = products.find(p => String(p.id) === String(productId) || p.id === productId);
+    if (!product) {
+        console.error('Product not found:', productId);
+        return;
+    }
     
     document.getElementById('modal-product-name').textContent = product.name;
     document.getElementById('modal-product-price').textContent = `₹${product.price.toFixed(2)}`;
