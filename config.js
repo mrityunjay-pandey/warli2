@@ -10,7 +10,7 @@ const API_CONFIG = {
     // - If backend is on same domain: '/api'
     // - If backend is separate: 'https://your-backend.railway.app/api'
     // - If using Vercel serverless: '/api'
-    production: '/api', // Change this to your production API URL
+    production: 'https://warli2.onrender.com/api', // Backend deployed on Render
     
     // Auto-detect based on current hostname
     getBaseUrl: function() {
