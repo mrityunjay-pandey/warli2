@@ -86,4 +86,3 @@ For production deployment:
 - Only products created through the admin panel are stored in MongoDB
 - Custom products are merged with default products on the frontend
 
-

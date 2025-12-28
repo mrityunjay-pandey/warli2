@@ -126,4 +126,3 @@ If you're still having issues:
 3. Visit `/api/health` to see connection status
 4. Verify MongoDB connection string format
 
-

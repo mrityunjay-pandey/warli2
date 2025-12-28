@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static('.')); // Serve static files (HTML, CSS, JS)
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/warli';
 
 // Store connection state
 let isConnected = false;

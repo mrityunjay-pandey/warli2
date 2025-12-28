@@ -1,7 +1,9 @@
-// API base URL - adjust this to match your server URL
-const API_BASE_URL = window.location.origin.includes('localhost') 
-    ? 'http://localhost:3000/api' 
-    : '/api';
+// API base URL - uses config.js for easy production updates
+const API_BASE_URL = window.API_CONFIG 
+    ? window.API_CONFIG.getBaseUrl() 
+    : (window.location.origin.includes('localhost') 
+        ? 'http://localhost:3000/api' 
+        : '/api');
 
 let customProducts = [];
 let editingProductId = null;
